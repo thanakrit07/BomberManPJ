@@ -11,6 +11,7 @@ public class Main extends Application{
 		Map map =new Map();
 		Scene scene =new Scene(root);
 		root.getChildren().add(map);
+		map.requestFocus();
 		
 		
 		primaryStage.setScene(scene);

@@ -1,6 +1,7 @@
 package logic;
 
-
+import java.util.ArrayList;
+import java.util.List;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -8,7 +9,7 @@ import javafx.scene.paint.Color;
 public abstract class BomberMan extends Entity{
 	protected static int speed;
 	protected int bombRange;
-	
+	protected List<Bomb> bombList = new ArrayList<Bomb>();
 	protected int direction;
 	
 	protected boolean alive;
@@ -17,22 +18,30 @@ public abstract class BomberMan extends Entity{
 		this.x = x;
 		this.y = y;
 		alive = true;
+	
 	}
 	
 	protected void Up() {
-		this.y-=BomberMan.speed;
+		this.y-= speed;
+		System.out.println("Up");
 	}
 	
 	protected void Down() {
-		this.y+=BomberMan.speed;
+		this.y+= speed;
+		System.out.println("Down");
 	}
 
 	protected void Left() {
-		this.x-=BomberMan.speed;
+		this.x-= speed;
 	}
 
 	protected void Right() {
-		this.x+=BomberMan.speed;
+		this.x+= speed;
+	}
+	protected void DropBomb() {
+		Bomb bomb = new Bomb(this.x,this.y);
+		bomb.setVisible(true);
+		this.bombList.add(bomb);
 	}
 
 

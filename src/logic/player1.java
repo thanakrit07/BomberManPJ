@@ -16,8 +16,9 @@ public class player1 extends BomberMan{
 		this.alive=true;		
 		
 	}
+	
 	@Override
-	public void update() {
+	public   void update() {
 		// TODO Auto-generated method stub
 		if (KeyInput.getKeyPressed(KeyCode.W))Up();
 		else if (KeyInput.getKeyPressed(KeyCode.S))Down();

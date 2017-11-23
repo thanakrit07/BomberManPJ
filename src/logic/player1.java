@@ -23,10 +23,10 @@ public class player1 extends BomberMan{
 		else if (KeyInput.getKeyPressed(KeyCode.S))Down();
 		else if (KeyInput.getKeyPressed(KeyCode.A))Left();
 		else if (KeyInput.getKeyPressed(KeyCode.D))Right();
-		if(KeyInput.getKeyPressed(KeyCode.CONTROL)) {
-			if(!KeyInput.setkeyPressed.contains(KeyCode.CONTROL)) {
+		if(KeyInput.getKeyPressed(KeyCode.SPACE)) {
+			if(!KeyInput.setkeyPressed.contains(KeyCode.SPACE)) {
 				DropBomb();
-				KeyInput.setkeyPressed.add(KeyCode.CONTROL);
+				KeyInput.setkeyPressed.add(KeyCode.SPACE);
 			}
 		}
 		

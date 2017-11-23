@@ -1,9 +1,11 @@
 package logic;
 
-import ShareObject.IRenderable;
+import sharedObject.IRenderable;
 
 public abstract class Entity implements IRenderable {
 	protected double x,y;
+	protected int z;
+	
 	protected int direction = 0; // Right
 	
 	protected boolean visible;
@@ -17,5 +19,7 @@ public abstract class Entity implements IRenderable {
 	public void setVisible(boolean visible) {
 		this.visible = visible;
 	}
-	
+	public int getZ() {
+		return z;
+	}
 }

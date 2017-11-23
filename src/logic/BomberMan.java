@@ -39,9 +39,13 @@ public abstract class BomberMan extends Entity{
 		this.x+= speed;
 	}
 	protected void DropBomb() {
-		Bomb bomb = new Bomb(this.x,this.y);
+		Bomb bomb = new Bomb(this.x,this.y,this.bombRange);
 		bomb.setVisible(true);
 		this.bombList.add(bomb);
+	}
+	
+	protected void EffectBomb(double x,double y) {
+		  
 	}
 
 

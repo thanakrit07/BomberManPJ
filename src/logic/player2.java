@@ -5,8 +5,8 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 
-public class player1 extends BomberMan{
-	public player1(double x, double y) {
+public class player2 extends BomberMan{
+	public player2(double x, double y) {
 		super(x,y);
 		this.direction = 1; // Right
 		this.bombRange=1;
@@ -19,14 +19,14 @@ public class player1 extends BomberMan{
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
-		if (KeyInput.getKeyPressed(KeyCode.W))Up();
-		else if (KeyInput.getKeyPressed(KeyCode.S))Down();
-		else if (KeyInput.getKeyPressed(KeyCode.A))Left();
-		else if (KeyInput.getKeyPressed(KeyCode.D))Right();
-		if(KeyInput.getKeyPressed(KeyCode.CONTROL)) {
-			if(!KeyInput.setkeyPressed.contains(KeyCode.CONTROL)) {
+		if (KeyInput.getKeyPressed(KeyCode.UP))Up();
+		else if (KeyInput.getKeyPressed(KeyCode.DOWN))Down();
+		else if (KeyInput.getKeyPressed(KeyCode.LEFT))Left();
+		else if (KeyInput.getKeyPressed(KeyCode.RIGHT))Right();
+		if(KeyInput.getKeyPressed(KeyCode.ENTER)) {
+			if(!KeyInput.setkeyPressed.contains(KeyCode.ENTER)) {
 				DropBomb();
-				KeyInput.setkeyPressed.add(KeyCode.CONTROL);
+				KeyInput.setkeyPressed.add(KeyCode.ENTER);
 			}
 		}
 		
@@ -45,9 +45,6 @@ public class player1 extends BomberMan{
 			}
 		}
 	}
-
-	
-
 	
 
 }

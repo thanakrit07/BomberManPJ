@@ -1,17 +1,21 @@
+import draw.GameScreen;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import logic.Map;
+import logic.GamePlayer;
 
 public class Main extends Application{
 	public void start(Stage primaryStage) {
 		Group root = new Group();
-		Map map =new Map();
+		
+		GameScreen gamescreen = new GameScreen(1080,920);
+		GamePlayer gameplayer = new GamePlayer();
+		
 		Scene scene =new Scene(root);
-		root.getChildren().add(map);
-		map.requestFocus();
+		root.getChildren().add(gamescreen);
+		gamescreen.requestFocus();
 		
 		
 		primaryStage.setScene(scene);
@@ -20,7 +24,9 @@ public class Main extends Application{
 		
 		AnimationTimer animation = new AnimationTimer() {
 			public void handle(long now) {
-				map.MapUpdate();
+				
+				gamescreen.paintComponent();
+				gameplayer.update();
 			}
 		};
 		animation.start();

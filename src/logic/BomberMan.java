@@ -14,7 +14,7 @@ public abstract class BomberMan extends Entity{
 	
 	protected boolean alive;
 	
-	protected BomberMan(double x,double y) {
+	protected  BomberMan(double x,double y) {
 		this.x = x;
 		this.y = y;
 		alive = true;

@@ -1,26 +1,27 @@
 package logic;
 
-import javafx.scene.canvas.GraphicsContext;
-import sharedObject.IRenderable;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 
-public class Hitbox implements IRenderable{
-
-	@Override
-	public void draw(GraphicsContext gc) {
-		// TODO Auto-generated method stub
-		
+public class Hitbox extends Rectangle{
+	protected double x,y,w,h;
+	
+	public Hitbox(double x,double y,double w,double h) {
+		this.x = x;
+		this.y = y;
+		this.w = w;
+		this.h = h;
 	}
-
-	@Override
-	public boolean isVisible() {
-		// TODO Auto-generated method stub
-		return false;
+	
+	 //IsPlayerhitbyEffectedBomb 
+	protected boolean IsHit(Rectangle other) {
+		boolean hited = false;
+		Shape intersect = Shape.intersect(other, this);
+		if (intersect.getBoundsInLocal().getWidth() != -1) {
+			hited = true;
+		}
+		return hited ;
 	}
-
-	@Override
-	public int getZ() {
-		// TODO Auto-generated method stub
-		return -9000;
-	}
+	//checked getBox
 	
 }

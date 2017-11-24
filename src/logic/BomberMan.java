@@ -6,18 +6,22 @@ import java.util.List;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
+import logic.Hitbox;
+
 public abstract class BomberMan extends Entity {
-	protected static int speed;
+	protected int speed;
 	protected int bombRange;
 	protected List<Bomb> bombList = new ArrayList<Bomb>();
 	protected int direction;
+	protected Hitbox hitBox;
 
 	protected boolean alive;
 
 	protected BomberMan(double x, double y) {
 		this.x = x;
 		this.y = y;
-		alive = true;
+		this.alive = true;
+		
 
 	}
 
@@ -53,6 +57,13 @@ public abstract class BomberMan extends Entity {
 
 	public void setAlive(boolean alive) {
 		this.alive = alive;
+	}
+	
+	protected void hitWall() {
+		if (this.direction==0)this.y+=this.speed;
+		else if(this.direction==1)this.x-=this.speed;
+		else if(this.direction==2)this.y-=this.speed;
+		else if(this.direction==3)this.x+=this.speed;
 	}
 
 	public abstract void update();

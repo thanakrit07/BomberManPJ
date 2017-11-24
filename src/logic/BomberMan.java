@@ -21,24 +21,29 @@ public abstract class BomberMan extends Entity {
 		this.x = x;
 		this.y = y;
 		this.alive = true;
-		
+		this.hitBox = new Hitbox(x,y,60,60);
 
 	}
 
 	protected void Up() {
 		this.y -= speed;
+		this.hitBox.y-= speed;
+	
 	}
 
 	protected void Down() {
 		this.y += speed;
+		this.hitBox.y+= speed;
 	}
 
 	protected void Left() {
 		this.x -= speed;
+		this.hitBox.x-= speed;
 	}
 
 	protected void Right() {
 		this.x += speed;
+		this.hitBox.x+= speed;
 	}
 
 	protected void DropBomb() {
@@ -59,7 +64,8 @@ public abstract class BomberMan extends Entity {
 		this.alive = alive;
 	}
 	
-	protected void hitWall() {
+	public void hitWall() {
+		System.out.println("hit");
 		if (this.direction==0)this.y+=this.speed;
 		else if(this.direction==1)this.x-=this.speed;
 		else if(this.direction==2)this.y-=this.speed;

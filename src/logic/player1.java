@@ -13,11 +13,14 @@ public class player1 extends BomberMan {
 		this.bombRange = 1;
 
 		this.speed = 5;
-		this.hitBox = new Hitbox(x,y,60,60);
+		
 		this.alive = true;
 
 	}
-
+	
+	public Hitbox getHitbox() {
+		return this.hitBox;
+	}
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
@@ -37,8 +40,8 @@ public class player1 extends BomberMan {
 			Right();
 			this.direction =1;
 		}
-		this.hitBox.x=this.x;
-		this.hitBox.y=this.y;
+		
+
 		if (KeyInput.getKeyPressed(KeyCode.SPACE)) {
 			if (!KeyInput.setkeyPressed.contains(KeyCode.SPACE)) {
 				DropBomb();

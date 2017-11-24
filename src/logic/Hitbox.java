@@ -14,10 +14,13 @@ public class Hitbox extends Rectangle{
 	}
 	
 	 //IsPlayerhitbyEffectedBomb 
-	protected boolean IsHit(Rectangle other) {
+	public boolean IsHit(Rectangle other) {
+		
 		boolean hited = false;
-		Shape intersect = Shape.intersect(other, this);
+		Shape intersect = Shape.intersect(this, other);
+		System.out.println(intersect.getBoundsInLocal().getWidth());
 		if (intersect.getBoundsInLocal().getWidth() != -1) {
+			System.out.println("hit");
 			hited = true;
 		}
 		return hited ;

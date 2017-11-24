@@ -5,7 +5,7 @@ import javafx.scene.paint.Color;
 
 public class Wall extends Entity{
 	
-	Hitbox hitbox;
+	private Hitbox hitbox;
 	public Wall(double x,double y) {
 		this.x=x;
 		this.y=y;
@@ -15,6 +15,14 @@ public class Wall extends Entity{
 		// TODO Auto-generated method stub
 		gc.setFill(Color.WHITE);
 		gc.fillRect(this.x, this.y, 60, 60);
+	}
+	
+	public Hitbox getHitbox() {
+		return hitbox;
+	}
+	
+	public int getZ() {
+		return 0;
 	}
 	
 }

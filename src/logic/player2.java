@@ -13,11 +13,14 @@ public class player2 extends BomberMan {
 		this.bombRange = 1;
 
 		this.speed = 5;
-		this.hitBox = new Hitbox(x,y,60,60);
+	
 		this.alive = true;
 
 	}
-
+	
+	public Hitbox getHitbox() {
+		return this.hitBox;
+	}
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub

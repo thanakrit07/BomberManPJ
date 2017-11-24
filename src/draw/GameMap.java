@@ -8,19 +8,15 @@ import logic.player2;
 import sharedObject.IRenderable;
 
 public class GameMap implements IRenderable{
-	private player1 p1;
-	private player2 p2;
+	public Wall wall=new Wall(500,500);
 	@Override
 	public void draw(GraphicsContext gc) {
 		// TODO Auto-generated method stub
 		gc.setFill(Color.BURLYWOOD);
 		gc.fillRect(0, 0, 1080, 920);
-		Wall wall = new Wall(500,500);
-		wall.draw(gc);
-		
-
+	
 	}
-
+	
 	@Override
 	public boolean isVisible() {
 		// TODO Auto-generated method stub

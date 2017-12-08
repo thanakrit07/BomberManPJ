@@ -12,14 +12,14 @@ public class player1 extends BomberMan {
 		this.direction = 1; // Right
 		this.bombRange = 1;
 
-		this.speed = 5;
+		this.speed = 4;
 		
 		this.alive = true;
 
 	}
 	
 	public Hitbox getHitbox() {
-		return this.hitBox;
+		return this.Ihitbox;
 	}
 	@Override
 	public void update() {
@@ -58,7 +58,6 @@ public class player1 extends BomberMan {
 			if (i.isVisible()) {
 				i.drawEffectBomb(gc);
 				i.draw(gc);
-
 			}
 		}
 		gc.setFill(Color.BLUE);

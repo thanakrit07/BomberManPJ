@@ -28,6 +28,8 @@ public class Main extends Application {
 				gamescreen.paintComponent();
 				gameplayer.update();
 				RenderableHolder.getInstance().update();
+				
+				
 			}
 		};
 		animation.start();

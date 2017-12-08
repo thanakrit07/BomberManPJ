@@ -10,6 +10,7 @@ public class Wall extends Entity{
 		this.x=x;
 		this.y=y;
 		hitbox = new Hitbox(x,y,60,60);
+		this.visible=true;
 	}
 	public void draw(GraphicsContext gc) {
 		// TODO Auto-generated method stub

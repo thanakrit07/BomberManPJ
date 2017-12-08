@@ -13,37 +13,58 @@ public abstract class BomberMan extends Entity {
 	protected int bombRange;
 	protected List<Bomb> bombList = new ArrayList<Bomb>();
 	protected int direction;
-	protected Hitbox hitBox;
+	protected Hitbox Ihitbox, hitbox;
 
 	protected boolean alive;
 
 	protected BomberMan(double x, double y) {
 		this.x = x;
 		this.y = y;
+		this.visible=true;
 		this.alive = true;
-		this.hitBox = new Hitbox(x,y,60,60);
+		this.Ihitbox = new Hitbox(x, y, 60, 60);
 
 	}
 
 	protected void Up() {
-		this.y -= speed;
-		this.hitBox.y-= speed;
-	
+		if (!IshitWall(hitbox)) {
+			this.y -= speed;
+			this.Ihitbox.y -= speed;
+		}else {
+			this.y += speed;
+			this.Ihitbox.y += speed;
+		}
 	}
 
 	protected void Down() {
-		this.y += speed;
-		this.hitBox.y+= speed;
+		if (!IshitWall(hitbox)) {
+			this.y += speed;
+			this.Ihitbox.y += speed;
+		}else {
+			this.y -= speed;
+			this.Ihitbox.y -= speed;
+		}
 	}
 
 	protected void Left() {
-		this.x -= speed;
-		this.hitBox.x-= speed;
+		if (!IshitWall(hitbox)) {
+			this.x -= speed;
+			this.Ihitbox.x -= speed;
+		}else {
+			this.x += speed;
+			this.Ihitbox.x += speed;
+		}
+		
 	}
 
 	protected void Right() {
-		this.x += speed;
-		this.hitBox.x+= speed;
+		if (!IshitWall(hitbox)) {
+			this.x += speed;
+			this.Ihitbox.x += speed;
+		}else {
+			this.x -= speed;
+			this.Ihitbox.x -= speed;
+		}
 	}
 
 	protected void DropBomb() {
@@ -63,13 +84,27 @@ public abstract class BomberMan extends Entity {
 	public void setAlive(boolean alive) {
 		this.alive = alive;
 	}
-	
-	public void hitWall() {
-		System.out.println("hit");
-		if (this.direction==0)this.y+=this.speed;
-		else if(this.direction==1)this.x-=this.speed;
-		else if(this.direction==2)this.y-=this.speed;
-		else if(this.direction==3)this.x+=this.speed;
+
+	protected boolean IshitWall(Hitbox wall) {
+		return this.Ihitbox.IsHit(wall);
+
+		// if (this.direction==0) {
+		//
+		// this.y=wall.y+wall.h+0.001;
+		// this.hitBox.y=wall.y+wall.h+0.001;
+		// }
+		// else if(this.direction==1) {
+		// this.x=wall.x-this.hitBox.w+0.001;
+		// this.hitBox.x=wall.x-this.hitBox.w+0.001;
+		// }
+		// else if(this.direction==2) {
+		// this.y=wall.y-this.hitBox.h+0.001;
+		// this.hitBox.y=wall.y-this.hitBox.h+0.001;
+		// }
+		// else if(this.direction==3) {
+		// this.x=wall.x+wall.w+0.0001;
+		// this.hitBox.x=wall.x+wall.w+0.001;
+		// }
 	}
 
 	public abstract void update();

@@ -19,19 +19,31 @@ public class player2 extends BomberMan {
 	}
 	
 	public Hitbox getHitbox() {
-		return this.hitBox;
+		return this.Ihitbox;
 	}
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
-		if (KeyInput.getKeyPressed(KeyCode.UP))
+		if (KeyInput.getKeyPressed(KeyCode.UP)) {
 			Up();
-		else if (KeyInput.getKeyPressed(KeyCode.DOWN))
+			this.direction =0;
+		}			
+		
+		else if (KeyInput.getKeyPressed(KeyCode.DOWN)) {
 			Down();
-		else if (KeyInput.getKeyPressed(KeyCode.LEFT))
+			this.direction =2;
+		}
+		
+		else if (KeyInput.getKeyPressed(KeyCode.LEFT)) {
 			Left();
-		else if (KeyInput.getKeyPressed(KeyCode.RIGHT))
+			this.direction =3;
+		}
+			
+		else if (KeyInput.getKeyPressed(KeyCode.RIGHT)) {
 			Right();
+			this.direction =1;			
+		}
+
 		if (KeyInput.getKeyPressed(KeyCode.ENTER)) {
 			if (!KeyInput.setkeyPressed.contains(KeyCode.ENTER)) {
 				DropBomb();

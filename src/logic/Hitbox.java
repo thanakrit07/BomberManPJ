@@ -5,25 +5,24 @@ import javafx.scene.shape.Shape;
 
 public class Hitbox extends Rectangle{
 	protected double x,y,w,h;
+	protected int speed;
 	
 	public Hitbox(double x,double y,double w,double h) {
-		this.x = x;
-		this.y = y;
-		this.w = w;
-		this.h = h;
+		super(x,y,w,h);
 	}
 	
 	 //IsPlayerhitbyEffectedBomb 
-	public boolean IsHit(Rectangle other) {
-		
-		boolean hited = false;
-		Shape intersect = Shape.intersect(this, other);
-		System.out.println(intersect.getBoundsInLocal().getWidth());
-		if (intersect.getBoundsInLocal().getWidth() != -1) {
-			System.out.println("hit");
-			hited = true;
+	public boolean IsHit(Rectangle block) {
+		boolean ishit = false;
+		Shape intersect = Shape.intersect(block, this);
+		if(intersect.getBoundsInParent().getWidth() != -1) {
+			ishit = true;
 		}
-		return hited ;
+//		if(Math.hypot(block.x-this.x, block.y-this.y) < block.w || Math.hypot(block.x-this.x, block.y-this.y) < block.h) {
+//			ishit = true;
+//		}
+		return ishit;
+
 	}
 	//checked getBox
 	
